@@ -22,13 +22,13 @@ jobs:
       - attach_workspace:
           at: ~/
       - run:
-        name: Install the Yarn dependencies
-        working_directory: frontend/
-        command: yarn install
+          name: Install the Yarn dependencies
+          working_directory: frontend/
+          command: yarn install
       - run:
-        name: Run tests
-        working_directory: frontend/
-        command: yarn test
+          name: Run tests
+          working_directory: frontend/
+          command: yarn test
 
   # Define the scala job
   scala:
