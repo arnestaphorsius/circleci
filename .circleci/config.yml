@@ -76,3 +76,4 @@ workflows:
       - deploy:
           requires:
             - scala
+            - yarn
