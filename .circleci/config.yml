@@ -67,6 +67,9 @@ workflows:
   commit:
     jobs:
       - checkout
+      - yarn:
+          requires:
+            - checkout
       - scala:
           requires:
             - checkout
