@@ -79,7 +79,11 @@ workflows:
       - scala:
           requires:
             - checkout
-      - deploy:
+      - hold:
+          type: approval
           requires:
             - scala
             - yarn
+      - deploy:
+          requires:
+            - hold
