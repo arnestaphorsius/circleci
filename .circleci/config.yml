@@ -15,6 +15,21 @@ jobs:
           paths:
             - ./*
 
+  yarn:
+    docker:
+      - image: node:8.6.0
+    steps:
+      - attach_workspace:
+        at: ~/
+      - run:
+        name: Install the Yarn dependencies
+        working_directory: frontend/
+        command: yarn install
+      - run:
+        name: Run tests
+        working_directory: frontend/
+        command: yarn test
+
   # Define the scala job
   scala:
     docker:
