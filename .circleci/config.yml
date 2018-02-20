@@ -19,12 +19,18 @@ jobs:
     docker:
       - image: node:8.6.0
     steps:
+      - restore_cache:
+          key: node-modules-{{ checksum "yarn.lock" }}
       - attach_workspace:
           at: ~/
       - run:
           name: Install the Yarn dependencies
           working_directory: frontend/
           command: yarn install
+      - save_cache:
+          key: node-modules-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
       - run:
           name: Run tests
           working_directory: frontend/
